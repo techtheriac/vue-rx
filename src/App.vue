@@ -1,19 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Templateless></Templateless>
+    <smallButton :color="buttonColor">Ball</smallButton>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { Observable } from "rxjs";
+import Templateless from "./components/Templateless";
+import smallButton from "./components/styled/Button";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Templateless,
+    smallButton,
+  },
+  data() {
+    return {
+      buttonColor: "white",
+    };
+  },
+  subscriptions() {
+    const interval$ = Observable.interval(1000);
+    const timesTwo$ = interval$.map((i) => i * 2);
+    const timesThree$ = interval$.map((i) => i * 3);
+    return { timesTwo$, timesThree$ };
+  },
+};
 </script>
 
 <style>
