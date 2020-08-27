@@ -2,6 +2,7 @@
   <div id="app">
     <Templateless></Templateless>
     <smallButton :color="buttonColor">Ball</smallButton>
+    <Example></Example>
   </div>
 </template>
 
@@ -9,16 +10,19 @@
 import { Observable } from "rxjs";
 import Templateless from "./components/Templateless";
 import smallButton from "./components/styled/Button";
+import Example from "./components/Example";
 
 export default {
   name: "App",
   components: {
     Templateless,
     smallButton,
+    Example,
   },
   data() {
     return {
       buttonColor: "white",
+      tags: ["h1", "h2", "h3"],
     };
   },
   subscriptions() {
