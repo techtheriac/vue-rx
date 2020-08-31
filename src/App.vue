@@ -2,7 +2,7 @@
   <div id="app">
     <Templateless></Templateless>
     <smallButton :color="buttonColor">Ball</smallButton>
-    <Example></Example>
+    <Example :tags="renderTags"></Example>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       buttonColor: "white",
-      tags: ["h1", "h2", "h3"],
+      renderTags: ["h1", "h2", "h3", "h4"],
     };
   },
   subscriptions() {
