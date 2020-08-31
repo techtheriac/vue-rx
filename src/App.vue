@@ -3,6 +3,8 @@
     <Templateless></Templateless>
     <smallButton :color="buttonColor">Ball</smallButton>
     <Example :tags="renderTags"></Example>
+    <Conditional :ok="ok"></Conditional>
+    <button @click="ok = !ok">Toggle Conditional</button>
   </div>
 </template>
 
@@ -11,6 +13,7 @@ import { Observable } from "rxjs";
 import Templateless from "./components/Templateless";
 import smallButton from "./components/styled/Button";
 import Example from "./components/Example";
+import Conditional from "./components/ConditionalRendering";
 
 export default {
   name: "App",
@@ -18,11 +21,13 @@ export default {
     Templateless,
     smallButton,
     Example,
+    Conditional,
   },
   data() {
     return {
       buttonColor: "white",
       renderTags: ["h1", "h2", "h3", "h4"],
+      ok: true,
     };
   },
   subscriptions() {
