@@ -17,22 +17,29 @@
     <counter-stateful></counter-stateful>
     <counter-stateful></counter-stateful>
     <button @click="inc">Count Up</button>
+
+    <hr />
+    <component-mixin></component-mixin>
+
+    <hr />
+    <!-- <anchored-heading :level="headingLevel">Ismail</anchored-heading> -->
   </div>
 </template>
 
 <script>
-import { Observable } from "rxjs";
 import Templateless from "./components/Templateless";
 import smallButton from "./components/styled/Button";
 import Example from "./components/Example";
 import Conditional from "./components/ConditionalRendering";
 import counter from "./components/PassingProps";
+import ComponentMixin from "./components/Mixins";
+// import AnchoredHeading from "./components/AnchoredHeading";
 
 const state = {
   count: 0,
 };
 
-//Counter dealing with shared state object,
+//Counter dealing with shared state object
 const CounterStateful = {
   name: "counter-stateful",
   props: {},
@@ -53,6 +60,8 @@ export default {
     Conditional,
     counter,
     CounterStateful,
+    ComponentMixin,
+    // AnchoredHeading,
   },
   data() {
     return {
@@ -60,13 +69,8 @@ export default {
       renderTags: ["h1", "h2", "h3", "h4"],
       ok: true,
       count: 0,
+      headingLevel: 2,
     };
-  },
-  subscriptions() {
-    const interval$ = Observable.interval(1000);
-    const timesTwo$ = interval$.map((i) => i * 2);
-    const timesThree$ = interval$.map((i) => i * 3);
-    return { timesTwo$, timesThree$ };
   },
   methods: {
     inc() {

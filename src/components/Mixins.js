@@ -1,12 +1,14 @@
 import Vue from "vue";
+import addThree from "../utils/helpers";
 
+//Mixins - Vue's strategy for code reuse and data inheritance
 var myMixin = {
   created: function() {
     this.hello();
   },
   methods: {
     hello() {
-      console.log("You're using a fucking mixin");
+      console.log("This is a fucking mixin " + addThree(2));
     },
   },
 };
